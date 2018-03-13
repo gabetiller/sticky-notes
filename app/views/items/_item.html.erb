@@ -2,13 +2,19 @@
   <table>
     <tr>
       <th>My Notes</th>
+      <th>Time Left</th>
       <th>Delete</th>
     </tr>
     <tr>
       <% @items.each do |item| %>
       <% author = item.user_id %>
       <% if author == current_user.id %>
+      <% existence = Time.now.to_i - item.created_at.to_i %>
+      <% from_time = existence %>
+      <% to_time = 2.hours.to_i %>
+      <% time_left = distance_of_time_in_words(from_time, to_time ) %>
       <td><%= item.name %></td>
+      <td><%= time_left %></td>
       <td><%= link_to "delete", user_item_path(@user, item), method: :delete, :remote => true, :class => 'delete-item' %></td>
     </tr>
     <% end %>
