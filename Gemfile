@@ -40,6 +40,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+gem 'faker'
+
 gem 'thor', '0.19.1'
 
 group :development do
@@ -47,5 +49,8 @@ group :development do
 end
 
 gem 'devise'
+
+gem 'pry-rails', group: [:development, :test]
+
 
 gem 'bootstrap-sass'

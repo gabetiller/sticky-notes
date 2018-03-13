@@ -1,0 +1,31 @@
+<div class="container">
+  <table>
+    <tr>
+      <th>My Notes</th>
+    </tr>
+    <tr>
+      <% @items.each do |item| %>
+      <% author = item.user_id %>
+      <% if author == current_user.id %>
+      <td><%= item.name %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+<br></br>
+  <table>
+    <tr>
+      <th>Other's Notes</th>
+      <th>Author</th>
+    </tr>
+    <tr>
+      <% @items.each do |item| %>
+      <% author = item.user_id %>
+      <% if author != @user.id %>
+      <td><%= item.name %></td>
+      <td><%= item.user.email %></td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+</div>

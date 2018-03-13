@@ -1,0 +1,6 @@
+
+<%= form_for @item, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_area :name, size: "60x12" %>
+  <br><br>
+  <%= f.submit "Create" %>
+<% end %>
