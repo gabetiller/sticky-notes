@@ -2,17 +2,19 @@
   <table>
     <tr>
       <th>My Notes</th>
+      <th>Delete</th>
     </tr>
     <tr>
       <% @items.each do |item| %>
       <% author = item.user_id %>
       <% if author == current_user.id %>
       <td><%= item.name %></td>
+      <td><%= link_to "delete", user_item_path(@user, item), method: :delete, :remote => true, :class => 'delete-item' %></td>
     </tr>
     <% end %>
     <% end %>
   </table>
-<br></br>
+  <br></br>
   <table>
     <tr>
       <th>Other's Notes</th>
