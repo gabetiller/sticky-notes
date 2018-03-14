@@ -3,6 +3,18 @@ include Faker
 
 
 
+admin = User.create!(
+  email: 'admin@admin.com',
+  password: 'Mowgli11@',
+)
+
+10.times do
+  Item.create!(
+    user:  admin,
+    name: Faker::Seinfeld.quote,
+  )
+end
+
 5.times do
   User.create!(
     email: Faker::Internet.email,
@@ -13,17 +25,15 @@ users = User.all
 
 
 
-50.times do
+20.times do
   Item.create!(
     user:   users.sample,
-    name: Faker::Seinfeld.character,
+    name: Faker::Seinfeld.quote,
   )
-  end
+end
 
-  User.create!(
-    email: 'admin@admin.com',
-    password: 'Mowgli11@',
-  )
+
+
 
 
 

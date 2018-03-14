@@ -1,39 +1,43 @@
-<div class="container">
-  <table>
-    <tr>
-      <th>My Notes</th>
-      <th>Time Left</th>
-      <th>Delete</th>
+<!-- <div class="container"> -->
+  <table class="my-table">
+    <thead>
+    <tr class="my-tr">
+      <th class="my-th">Notes</th>
+      <th class="my-th">Time Left</th>
+      <th class="my-th">Author</th>
+      <th class="my-th">Delete</th>
     </tr>
-    <tr>
-      <% @items.each do |item| %>
-      <% author = item.user_id %>
-      <% if author == current_user.id %>
-      <% existence = Time.now.to_i - item.created_at.to_i %>
-      <% from_time = existence %>
-      <% to_time = 2.hours.to_i %>
-      <% time_left = distance_of_time_in_words(from_time, to_time ) %>
-      <td><%= item.name %></td>
-      <td><%= time_left %></td>
-      <td><%= link_to "delete", user_item_path(@user, item), method: :delete, :remote => true, :class => 'delete-item' %></td>
+  </thead>
+    <% @items.each do |item| %>
+    <tr class="my-tr">
+      <td class="my-td"><%= item.name %></td>
+      <td class="my-td"><%= time_left(item) %></td>
+      <% if me(item) %>
+      <td class="my-td">me</td>
+      <% else %>
+      <td class="my-td"><%=item.user.email%></td>
+      <% end %>
+      <% if me(item) %>
+      <td class="my-td delete"><%= link_to "delete", user_item_path(@user, item), method: :delete, :remote => true, :class => 'delete-item' %></td>
+      <% else %>
+      <td class="my-td"></td>
+      <% end %>
     </tr>
-    <% end %>
     <% end %>
   </table>
-  <br></br>
-  <table>
-    <tr>
-      <th>Other's Notes</th>
-      <th>Author</th>
-    </tr>
-    <tr>
-      <% @items.each do |item| %>
-      <% author = item.user_id %>
-      <% if author != @user.id %>
-      <td><%= item.name %></td>
-      <td><%= item.user.email %></td>
-    </tr>
-    <% end %>
-    <% end %>
-  </table>
-</div>
+  <!-- <table>
+  <tr>
+  <th>Other's Notes</th>
+  <th>Author</th>
+</tr> -->
+<!-- <tr>
+<% @items.each do |item| %>
+<% author = item.user_id %>
+<% if author != @user.id %>
+<td><%= item.name %></td>
+<td><%= item.user.email %></td>
+</tr>
+<% end %>
+<% end %> -->
+<!-- </table> -->
+<!-- </div> -->

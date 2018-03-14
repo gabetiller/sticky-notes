@@ -83,6 +83,11 @@
 // }
 //
 //
+
+a.my-td.delete {
+  color: black;
+  text-decoration: none;
+}
 div.container.nav-box {
   width: 100%;
   // border-bottom: 1px solid black;
@@ -92,18 +97,29 @@ div.container.nav-box {
 div.container {
   width: 100%;
 }
-table, th, td {
-   border: 1px solid black;
-   padding-left: 20px;
-}
-table {
-  width: 100%;
-}
-th {
-  height: 40px;
+
+table.my-table{
+  empty-cells: show;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+.my-table, .my-th, .my-td {
+   border: 5px solid white;
+   padding: 2px;
+   empty-cells: show;
+
+
+}
+
+
+tr:nth-child(even) {
+  background-color: black;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgray;
+  color: black;
+}
 // button {
 //     background-color: white;
 //     color: black;
