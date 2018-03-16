@@ -1,24 +1,24 @@
 <!-- <div class="container"> -->
-  <table class="my-table">
-    <thead>
+  <table class="my-table" width="100%" cellpadding="5">
+    <thead class= "my-thead">
     <tr class="my-tr">
-      <th class="my-th">Notes</th>
+      <th class="my-th">You've got <%= @user.items.count%> incomplete sticky's</th>
       <th class="my-th">Time Left</th>
       <th class="my-th">Author</th>
-      <th class="my-th">Delete</th>
+      <th class="my-th">Done</th>
     </tr>
   </thead>
     <% @items.each do |item| %>
     <tr class="my-tr">
-      <td class="my-td"><%= item.name %></td>
+      <td class="my-td"><input data-id="<%= item.id %>" value="<%= item.name %>"></input></td>
       <td class="my-td"><%= time_left(item) %></td>
       <% if me(item) %>
-      <td class="my-td">me</td>
+        <td class="my-td">me</td>
       <% else %>
-      <td class="my-td"><%=item.user.email%></td>
+        <td class="my-td"><%=item.user.email%></td>
       <% end %>
       <% if me(item) %>
-      <td class="my-td delete"><%= link_to "delete", user_item_path(@user, item), method: :delete, :remote => true, :class => 'delete-item' %></td>
+      <td class="my-td delete"><%= link_to "", user_item_path(@user, item), method: :delete, :remote => true, :class => 'glyphicon glyphicon-ok delete-item' %></td>
       <% else %>
       <td class="my-td"></td>
       <% end %>

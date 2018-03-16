@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:update]
 
   def new
     @item = Item.new
@@ -9,13 +10,26 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.build(item_params)
+    @item = current_user.items.new(item_params)
     if @item.save
-      flash[:notice] = "Item was saved"
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path}
+        format.json { render json: @item, status: :created, location: @item }
+        format.js
+      end
     else
       flash[:notice] = "Item not saved, try again"
     end
+  end
+
+  def edit
+    @item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update_attributes(item_params)
+
   end
 
   def destroy

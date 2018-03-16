@@ -1,6 +1,5 @@
 
-<%= form_for @item, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_area :name, size: "60x12" %>
-  <br><br>
+<%= form_for Item.create, url: user_items_path(@user, @item), :html => {:method => :create, :class => "item-form"}  do |f| %>
+  <%= f.text_area :name, size: "130x2", placeholder: "add a sticky" %>
   <%= f.submit "Create" %>
 <% end %>

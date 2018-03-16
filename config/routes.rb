@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   # resources :users, :only => [:show]
   root 'users#show'
   resources :users do
-    resources :items, only: [:show, :new, :create, :index, :destroy]
+    resources :items
   end
+
+  resources :items, only: [:update, :show]
   #
   get 'welcome/index'
   #

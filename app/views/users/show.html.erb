@@ -1,10 +1,9 @@
-<div class="container">
-  <h4>Welcome <%= @user.email %></h4>
-  <p>Last signed in at: <%= @user.last_sign_in_at %></p>
-  <button><%= link_to "NEW NOTE ", new_user_item_path(:user_id)%></button>
+<div class="container my-container">
+  <h3>Self-Destructing To-Do List</h3>
+  <p>Last signed in at: <%= @user.last_sign_in_at.strftime("%m-%d-%Y | %l:%M:%S %p") %></p>
+  <%= render partial: 'items/form'%>
+  <!-- <button><%= link_to "NEW NOTE ", new_user_item_path(:user_id)%></button> -->
   <br></br>
+  </div>
+
   <%= render "items/item" %>
-
-
-
-</div>

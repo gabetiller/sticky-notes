@@ -15,3 +15,21 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$( document ).ready(function() {
+  $('.my-td input').blur(function() {
+    var $item = $(this);
+    var id = $item.attr('data-id');
+    var name = $item.val();
+    var item = { item: { name: name } };
+    var body = JSON.stringify(item);
+
+    $.ajax({
+      type: 'PUT',
+      dataType: 'json',
+      contentType: 'application/json',
+      url: "http://localhost:3000/items/" + id, // A valid URL
+      data: body // Some data e.g. Valid JSON as a string
+    });
+  });
+})
