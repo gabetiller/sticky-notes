@@ -12,32 +12,14 @@
     <tr class="my-tr">
       <td class="my-td"><input data-id="<%= item.id %>" value="<%= item.name %>"></input></td>
       <td class="my-td"><%= time_left(item) %></td>
-      <% if me(item) %>
+      <% if item.user.email == current_user.email %>
         <td class="my-td">me</td>
+        <td class="my-td delete"><%= link_to "", user_item_path(@user, item), method: :delete, :remote => true, :class => 'glyphicon glyphicon-ok delete-item' %></td>
       <% else %>
         <td class="my-td"><%=item.user.email%></td>
-      <% end %>
-      <% if me(item) %>
-      <td class="my-td delete"><%= link_to "", user_item_path(@user, item), method: :delete, :remote => true, :class => 'glyphicon glyphicon-ok delete-item' %></td>
-      <% else %>
-      <td class="my-td"></td>
+        <td class="my-td"></td>
       <% end %>
     </tr>
     <% end %>
   </table>
-  <!-- <table>
-  <tr>
-  <th>Other's Notes</th>
-  <th>Author</th>
-</tr> -->
-<!-- <tr>
-<% @items.each do |item| %>
-<% author = item.user_id %>
-<% if author != @user.id %>
-<td><%= item.name %></td>
-<td><%= item.user.email %></td>
-</tr>
-<% end %>
-<% end %> -->
-<!-- </table> -->
-<!-- </div> -->
+  

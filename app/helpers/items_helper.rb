@@ -1,13 +1,19 @@
 module ItemsHelper
 
   def time_left(item)
-    from_time = Time.now - item.created_at
-    to_time = 7.days
+    from_time = Time.now.to_i - item.created_at.to_i
+    to_time = 7.days.to_i
     time_left = distance_of_time_in_words(from_time, to_time )
   end
 
-  def me(item)
-    item.user.email == current_user.email
+  def expired(item)
+    if item.time_left >= 8.days.to_i
+      item.destroy
+    end
   end
+
+  # def me(item)
+  #   item.user.email == current_user.email
+  # end
 
 end

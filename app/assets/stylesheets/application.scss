@@ -36,14 +36,14 @@ a > .delete:hover {
 // navigation
 div.container.nav-box {
   // width: 100%;
-  background-color: #ffffb3;
+  background-color: #eeffff;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 div.container.my-container {
-  box-shadow: 3px -4px 7px 0px #caae53;
-  background-color: #ffe082;
+  box-shadow: 1px 0px 10px 0px #263238;
+  background-color: #bbdefb;
 }
 
 .my-nav-link {
@@ -97,45 +97,51 @@ div.container {
 table.my-table{
   margin: 0;
   empty-cells: show;
-  box-shadow: 3px -4px 7px 0px #caae53;
+  box-shadow: 1px 0px 10px 0px #263238;
   // border: 5px solid #75a478;
 
 }
 
 .my-table, .my-th, .my-td {
    // border: 4px solid white;
-   padding-top: 3px;
-   padding-bottom: 3px;
+   padding-top: 5px;
+   padding-bottom: 5px;
    padding-left: 13px;
    padding-right: 15px;
    empty-cells: show;
 
 }
-// tr:hover {
-//   box-shadow: 3px -4px 7px 0px #caae53;
-//
-// }
+tr:hover {
+  box-shadow: 1px 0px 10px 0px #263238 {
+      z-index: 2;
+  }
+
+
+
+  // outline: 2px solid gray;
+
+}
 
 tr:nth-child(even) {
-  background-color: #ffffb3;
+  background-color: #eeffff;
   color: black;
 
   .my-td input {
-    background-color: #ffffb3;
+    background-color: #eeffff;
   }
 }
 
 tr:nth-child(odd) {
-  background-color: #ffe082;
+  background-color: #bbdefb;
   color: black;
 
   .my-td input {
-    background-color: #ffe082;
+    background-color: #bbdefb;
   }
 }
 thead tr.my-tr {
-  // border-top: 5px solid #caae53 !important;
-  background-color: #ffffb3;
+  // border-top: 5px solid #263238 !important;
+  background-color: #eeffff;
   font-size: 20px;
   text-transform: capitalize;
   text-align: center !important;
@@ -143,28 +149,29 @@ thead tr.my-tr {
 }
 
 button {
-  border: #ffffb3;
-  background-color: #ffffb3;
+  border: #eeffff;
+  background-color: #eeffff;
   padding: 10px;
 }
 
 // FORM
 .item-form textarea {
-  background: #ffe082;
-  outline: none;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  background: #bbdefb;
+  // transform: rotate(-1deg);
+  outline:1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   box-sizing: border-box;
   border: 0;
   font-size: 100%;
-  box-shadow: 3px -4px 7px 0px #caae53;
+  box-shadow: -1px 0px 5px 0px #263238;
 }
 
 textarea:hover {
-box-shadow: -3px -3px 10px 0px #caae53;
+  // box-shadow: 1px 0px 10px 0px #263238;
 }
 input:focus, textarea:focus {
-  background: #ffe082;
+  background: #bbdefb;
   outline: none;
 
 }
@@ -180,7 +187,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  background-color: #ffe082;
+  background-color: #bbdefb;
   justify-content: space-between;
 }
 .site {
@@ -192,7 +199,8 @@ footer.my-footer {
   margin: 0;
   padding: 20, 20, 20, 20;
   border: 0;
-  box-shadow: -3px -3px 10px 0px #caae53;
+  v-index: 2
+  // box-shadow: -3px -3px 10px 0px #263238;
 }
 
 // footer.my-footer-link {

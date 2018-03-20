@@ -15,6 +15,14 @@ admin = User.create!(
   )
 end
 
+5.times do
+    Item.create!(
+      user: admin,
+      name: Faker::Seinfeld.quote,
+      created_at: 8.days.ago
+    )
+  end
+
 10.times do
   Item.create!(
     user:  admin,
